@@ -1,0 +1,55 @@
+
+
+<project name="My Test Git Build Script" basedir="." default="jar">
+  	<target name="check-local-properties">
+		<tstamp/>
+		<available file="local.properties" 
+	           property="local.properties.available"/>
+	</target>
+	                                                                                           
+	<target name="local-properties" 
+	          if="local.properties.available" 
+	          depends="check-local-properties">
+		<echo message="Loading local properties file"/>
+		<property file="local.properties"/>
+	</target>
+
+	<target name="properties" depends="local-properties">
+	    <echo message="Loading build properties file"/>
+	    <property file="build.properties"/>
+	</target>
+	
+	<!-- Clean up -->
+	<target name="clean" depends="properties">
+		<delete dir="${build}"/>
+		<delete file="${dist}/${file.jar}"/>    
+	</target>
+
+	<!-- Create the destination directory -->
+	<target name="init" depends="properties,clean">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- Build all -->
+	
+	<target name="all" depends="init"/>
+	
+	<!-- Compile -->
+	<target name="compile" depends="init">
+		<echo message="${classpath}"/>
+  		<javac debug="true" srcdir="${src}" destdir="${build}" deprecation="true"  
+  		/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="${dist}/${file.jar}" basedir="${build}"/>
+	</target> 	
+
+	<target name="deploy" depends="jar">
+		<delete file="${dist}/${deploy.jar}"/>
+		<jar jarfile="${dist}/${deploy.jar}" basedir="${build}"/>
+	</target> 	
+	
+	<target name="main" depends="jar"/> 
+</project>
