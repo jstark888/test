@@ -4,6 +4,7 @@ public class Test2 extends Test {
 
 	private byte val;
 	private String sval;
+	private boolean bval;
 	
 	public Test2(byte val) {
 		this.val = val;
@@ -26,5 +27,11 @@ public class Test2 extends Test {
 		this.sval = sval;
 	}
 	
+	public boolean getBoolean() {
+		return bval;
+	}
 	
+	public void setBoolean(boolean bval) {
+		this.bval = bval;
+	}
 }
