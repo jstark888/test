@@ -2,18 +2,18 @@ package jstark.test.git;
 
 public class Test3 extends Test {
 
-	private short val;
+	private char val;
 	
-	public Test3(short val) {
+	public Test3(char val) {
 		this.val = val;
-		setVersion("1.3");
+		setVersion("1.4");
 	}
 
-	public short getShort() {
+	public char getChar() {
 		return val;
 	}
 
-	public void setShort(short val) {
+	public void setChar(char val) {
 		this.val = val;
 	}
 }
