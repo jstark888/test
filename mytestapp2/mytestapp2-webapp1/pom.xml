@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>jstark.test</groupId>
+    <artifactId>mytestapp2</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>mytestapp2-webapp1</artifactId>
+  <packaging>war</packaging>
+  <name>mytestapp2-webapp1 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <war.version>0.0.1-SNAPSHOT</war.version>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>jstark.test</groupId>
+      <artifactId>mytestapp2-service</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>mytestapp2-webapp1##${war.version}</finalName>
+  </build>
+</project>
